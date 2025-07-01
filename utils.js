@@ -46,25 +46,6 @@ export function deserialize(str) {
     return result;
 }
 
-function testCase(name, arr) {
-    const json = JSON.stringify(arr);
-    const stingify = arr.toString();
-
-    const serialized = serialize(arr);
-
-    const jsonRatio = (serialized.length / json.length * 100).toFixed(1) + '%';
-    const stringifyRatio = (serialized.length / stingify.length * 100).toFixed(1) + '%';
-
-    console.log('isEqual: ', isArraysEqual(arr, deserialize(serialized)));
-
-    //console.log(
-    //    `${name.padEnd(25)} | count=${arr.length.toString().padStart(4)} | ` +
-    //    `STRINGIFY=${stingify.length.toString().padStart(4)} | ` +
-    //    `SERIALIZED=${serialized.length.toString().padStart(4)} | ratio=${ratio} | ` +
-    //    `[${arr}] | [${deserialize(serialized)}]`
-    //);
-}
-
 export function isArraysEqual(a, b) {
     for (let i = 0; i < a.length; i++) {
         if (a[i] !== b[i]) {
@@ -82,7 +63,7 @@ export function randomNumbers(n) {
 }
 
 export function fillWithDigits(digits) {
-    const range = digits === 1 ? [0,9] : digits === 2 ? [10,99] : [100,300];
+    const range = digits === 1 ? [1,9] : digits === 2 ? [10,99] : [100,300];
 
     let arr = [];
 
